@@ -1,0 +1,16 @@
+<html>
+<head>
+	<title>Mini Amazon</title>
+</head>
+<body>
+
+{% for dict in search %} 
+	<ul>
+	<b><li>name:{{ dict["product name"] }}</li></b><br>
+	<b><li>price: {{ dict["price"] }}</li><br>
+	<b><li>Description: {{ dict["product description"] }}</li><br>
+	<b><li>Seller name:{{ dict["username"] }}</li></b><br>
+	</ul>
+{% endfor %}	
+</body>
+</html>

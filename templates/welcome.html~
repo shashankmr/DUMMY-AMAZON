@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+<p>WELCOME TO MINI - AMAZON</p>
+{% if login == "False" %}
+<form action="/login" method="POST">
+<p><input type="username" name="username" placeholder="Username"></p>
+<p><input type="password" name="password" placeholder="Password"></p>
+<p><input type="submit" value="Log in"></p>
+</form>
+
+<form action="/signup" method="POST">
+<p><input type="username" name="username" placeholder="Enter your user name"></p>
+<p><input type="name" name="name" placeholder="Enter your name"></p>
+<p><input type="email" name="email" placeholder="Enter your email"></p>
+<p><input type="password" name="password" placeholder="Create your password"></p>
+<p><input type="submit" value="Sign Up"></p>
+<p><input type="radio" name="account type" value="seller">seller<br></p>
+<p><input type="radio" name="account type" value="buyer">buyer<br></p>
+{% else %}
+
+Here is a list of pages you can go to, {{ session["user_id"] }}
+{% if (session["account type"] == "seller") %}
+	<p><a href = "/Add_products">Add products</a><br><p>
+	<a href="/products">All Products</a><br>
+	
+{% else %}
+	<br>
+	<p><a href="/products">All Products</a><br></p>
+{% endif %}
+	<p><a href = "/logout">Click here logout</a></p>
+{% endif %}
+</body>
+</html>
